@@ -13,17 +13,17 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
+  skip: true  # [win or py>36]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
-  host:
-    - python <=3.6
+  build:
+    - python
     - setuptools
     - pip
   run:
-    - python <=3.6
+    - python
     - setuptools
     - numpy
     - theano ==0.8.2
